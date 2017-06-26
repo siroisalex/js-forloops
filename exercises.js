@@ -9,8 +9,8 @@ Write a for-loop that will iterate through 20 numbers (starting at 1 and ending 
 "Now serving 20."
 */
 
-for(var i = 1; i < 21; i++){
-  console.log("Now serving ", i);
+for(var i = 1; i<21; i++){
+  console.log("Now serving " + i);
 }
 
 /* 2) Pop Charts
@@ -25,7 +25,7 @@ This week's chart buster is: '24K Magic.'
 var topFive = ["Closer", "Starboy", "I Feel It Coming", "Let Me Love You", "24K Magic"];
 
 for(var i = 0; i<topFive.length; i++){
-  console.log("This week's chart buster is: ", topFive[i]);
+  console.log("This week's chart buster is: " + topFive[i]);
 }
 
 /* 3) Dead Presidents
@@ -54,8 +54,6 @@ for(var i = 0; i<presidents.length; i++){
   console.log("The value at " + i + " is " + presidents[i]);
 }
 
-console.log(presidents.length);
-
 function leaders(person){
   for(var i = 0; i<person.length; i++){
     console.log("President " + person[i] + " was a great leader.");
@@ -63,6 +61,7 @@ function leaders(person){
 }
 
 leaders(presidents);
+console.log(leaders(presidents));
 
 /* 4) Line Number
 Declare a variable named `stringOfNumbers` and assign its value to an empty string. 
@@ -117,9 +116,12 @@ Note that every odd index value in `oopsArray` is currently `undefined`. Using a
 */
 
 var oopsArray = [ 'turn' , , 'down' , , 'for' , , 'what' ];
+console.log(oopsArray);
 
 for(var i = 0; i<oopsArray.length; i++){
+  console.log(oopsArray[i]);
   if(i%2 === 1){
+    console.log(i);
     oopsArray[i] = "nope";
   }
 }
@@ -139,6 +141,10 @@ turn
 */
 
 
+for(var i = oopsArray.length - 1; i>=0; i--){
+  console.log(oopsArray[i]);
+}
+
 /* 9) Siesta Time
 Declare a variable named `napSchedule` and assign its value to the following array: `[false, false, true, false, true, true]`
 
@@ -149,7 +155,19 @@ Next, write a function named `nap`. This function takes in a single parameter: `
 Inside of this function write a for-loop that will iterate through the `napSchedule` array and console.log the message: `ZzZzZzZz` if the schedule is `true`, otherwise the it will console.log the message: `Gotta get coding!` if the schedule is `false`.
 */
 
+var napSchedule = [false, false, true, false, true, true];
 
+function nap(schedule){
+  for(var i = 0; i<napSchedule.length; i++){
+    if(schedule[i] === true){
+      console.log("ZzZzZzZz");
+    }else{
+      console.log("Gotta get coding!");
+  }
+}
+}
+
+nap(napSchedule);
 
 /* 10) Copy Pasta
 Declare a variable named `valuesArray` and assign its value to be an array: `[99, 66, 829, 1941, 8, 76]`. 
@@ -163,7 +181,18 @@ Write a function named `copyArray` which takes two arguments: `originArray` and 
 Inside of this function write a for-loop that will iterate through the contents of the `originArray` and pushes each element of that array into `destinationArray`. Console.log your result.
 */
 
+var valuesArray = [99, 66, 829, 1941, 8, 76];
+var copyValuesArray = [];
 
+function copyArray(originArray, destinationArray){
+  for(var i = 0; i<originArray.length; i++){
+    destinationArray.push(originArray[i]);
+  }
+  return destinationArray;
+}
+
+console.log(copyArray(valuesArray, copyValuesArray));
+console.log(copyValuesArray);
 
 /*Final Boss*/
 
@@ -172,7 +201,20 @@ Declare a variable named `topQuote` and assign it to a String value of your favo
 Write a function that will iterate through the string value and return the longest word in that quote. Console.log your result.
 */
 
+var topQuote = "just be limber";
 
+function longestWord(quote){
+  var strToArray = quote.split(" ");
+  var currentWord = "";
+  for(var i = 0; i<strToArray.length; i++){
+    if(strToArray[i].length>currentWord.length){
+      currentWord = strToArray[i];
+    }
+  }
+  return currentWord;
+}
+
+console.log(longestWord(topQuote));
 
 /* 12) Puppet Master
 Declare a variable named `miscStorage` set it's value to be: `[ [], 'Carrots', 9, 'Beets', {}, {name: "Todd B."}, 'Mush' ]`
@@ -183,7 +225,19 @@ Write a function named `generateArrayOfStrings` which takes a single argument `s
 
 */
 
+var miscStorage = [ [], 'Carrots', 9, 'Beets', {}, {name: "Todd B."}, 'Mush' ];
 
+function generateArrayOfStrings(storage){
+  var stringArray = [];
+  for(var i = 0; i<storage.length; i++){
+    if(typeof storage[i] === typeof ""){
+      stringArray.push(storage[i]);
+    }
+  }
+  return stringArray;
+}
+
+console.log(generateArrayOfStrings(miscStorage));
 
 /* 13) All Grown Up 
 Write a function that will capitalize the first letter in each word in the phrase below. The function will console.log the message: "I've Lived A Life That's Full. I've Traveled Each And Every Highway. But More, Much More Than This. I Did It My Way."  
@@ -191,7 +245,9 @@ Write a function that will capitalize the first letter in each word in the phras
 
 var myWay = "i've lived a life that's full, i've traveled each and every highway. but more, much more than this. i did it my way.";
 
-
+function capitalize(phrase){
+  
+}
 
 /* 14) Back to School
 Declare a variable named `currentCohort` and set it's value to be this [array found here](https://gist.github.com/sgnl/e40879b2249e06ca7811).
